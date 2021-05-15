@@ -1,0 +1,79 @@
+background yes
+use_xft yes
+xftfont source code pro:pixelsize=14
+xftalpha 0.8
+update_interval 1
+total_run_times 0
+own_window_class conky
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_width 0
+default_color grey
+default_shade_color black
+default_outline_color black
+alignment top_right	
+gap_x 15
+gap_y 50
+no_buffers yes
+override_utf8_locale yes
+cpu_avg_samples 1
+net_avg_samples 1
+use_spacer left
+
+
+
+
+TEXT
+${alignr} ${kernel} |
+${alignr} ${machine} --'
+${alignr} |    
+${alignr} Power --|    
+${alignr} < ${battery_bar 10,20 BAT0} > Battery --|   |    
+${alignr} < ${battery_time BAT0} > Remaining --|   |    
+${alignr} < ${battery BAT0} > State --'   |    
+${alignr} |    
+${alignr} System --|    
+${alignr} CPU --|   |    
+${alignr} < ${freq_g}Ghz > Freq --|   |   |    
+${alignr} < $cpu% > Used --|   |   |    
+${alignr} < $loadavg > Load --|   |   |    
+${alignr} < ${top name 1}${top cpu 1} > --|   |   |    
+${alignr} < ${top name 2}${top cpu 2} > --|   |   |    
+${alignr} < ${top name 2}${top cpu 3} > --|   |   |    
+${alignr} < ${top name 3}${top cpu 4} > --'   |   |    
+${alignr} Temp --|   |    
+${alignr} < ${hwmon 1 temp 1}°C >  PCH --|   |   |    
+${alignr} < ${hwmon 2 temp 1}°C > Core --'   |   |    
+${alignr} Resources --|    
+${alignr} < $diskio_read > Disk-R --|   |    
+${alignr} < $diskio_write > Disk-W --|   |    
+${alignr} Ram --|   |    
+${alignr} < $memperc% > Used --|   |   |    
+${alignr} < $mem/$memmax > --'   |   |   |    
+${alignr} < ${top_mem name 1}${top mem 1} > --|   |   |    
+${alignr} < ${top_mem name 2}${top mem 2} > --|   |   |    
+${alignr} < ${top_mem name 2}${top mem 3} > --|   |   |    
+${alignr} < ${top_mem name 3}${top mem 4} > --'   |   |    
+${alignr} Disks --|    
+${alignr} < ${fs_used /}/${fs_size /} > Root --|   |    
+${alignr} < ${fs_bar 5,168 /} > --'   |   |    
+${alignr} < ${fs_used /home}/${fs_size /home} > Home --|   |    
+${alignr} < ${fs_bar 5,168 /home} > --'   |   |    
+${alignr} Net --'    
+${alignr} < ${wireless_essid wlp2s0} > ESSID --|        
+${alignr} < ${color 169fff}${execi 60 curl ifconfig.me/} $color> Public --|        
+${alignr} < ${wireless_link_qual 10,60 wlp2s0}/${wireless_link_qual_max wlp2s0} > Quality --|        
+${alignr} < ${tcp_portmon 1 65535 count} > Connections --|        
+${alignr} |        
+${alignr} < ${upspeed wlp2s0} k/s >   Up --|        
+${alignr} < ${upspeedgraph wlp2s0 8,168 169fff F9F06B} > --'   |        
+${alignr} < ${downspeed wlp2s0} k/s > Down --'        
+${alignr} < ${downspeedgraph wlp2s0 8,168 169fff F9F06B} > --'            
