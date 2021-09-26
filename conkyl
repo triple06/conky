@@ -1,0 +1,68 @@
+background yes
+use_xft yes
+xftfont source code pro :pixelsize=14
+update_interval 1
+total_run_times 0
+own_window_class conky
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+double_buffer yes
+draw_shades yes
+draw_outline no
+draw_borders no
+draw_graph_borders no
+stippled_borders 0
+border_width 0
+default_color c0c0c0
+default_shade_color black
+default_outline_color black
+alignment top_left
+gap_x 24
+gap_y 5
+no_buffers yes
+override_utf8_locale yes
+cpu_avg_samples 1
+net_avg_samples 1
+use_spacer left
+maximum_width 350
+   
+color1 ffa500  # orange
+color2 ffffff  # white
+color3 ffff00  # yellow
+
+
+
+TEXT
+
+
+${color2}${font SpaceAge:size=20}${alignc}${exec cat /etc/os-release | grep NAME | head -1 | cut -c 7-10}
+${alignc}${exec cat /etc/os-release | grep NAME | head -1 | cut -c 12-16}${font}
+${hr}
+${font poky:size=14}D${font} Time & Date${color}
+${offset 35}${color2}Now  :${color} ${time %c}  
+${offset 35}${color2}UpT. :${color}  ${uptime}
+${offset 35}${color2}Day  : ${color}${time %j}    ${color2}Week : ${color}${time %W}    ${color2}Month : ${color}${time %m}      
+
+${color2}${font poky:size=15}5${font} Battery 
+${color2}${offset 35}Now  :${color} ${battery BAT0}
+${color2}${offset 35}Perc :${color} ${battery_percent BAT0}%
+${color2}${offset 35}Left :${color} ${battery_time BAT0}
+
+${color2}${font StyleBats:size=16}f${font} Devices${color}
+${offset 35}${color2}HID  :${color} ${if_existing /dev/hidraw1}Logitech MX Anywhere 2S${else}${color2}: :${color}${endif}
+${offset 35}${color2}USB  :${color} ${if_existing /dev/sda}SanDisk Flash Drive${else}${color2}: :${color}${endif}
+
+${color2}${font SpaceAge:size=20}${alignc}Calendar${font}
+${hr}${color}
+${execpi 60 DJS=`date +%_d`; cal |sed 's/^/            /' | sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color ffa500}'"$DJS"'$color'/}
+       
+${color2}${font SpaceAge:size=20}${alignc}Agenda${font}
+${hr}${color}
+${exec cat ~/conky.txt}
+
+
+
+
+
