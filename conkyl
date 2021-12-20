@@ -20,7 +20,7 @@ default_shade_color black
 default_outline_color black
 alignment top_left
 gap_x 24
-gap_y 5
+gap_y 10
 no_buffers yes
 override_utf8_locale yes
 cpu_avg_samples 1
@@ -40,27 +40,22 @@ TEXT
 ${color2}${font SpaceAge:size=20}${alignc}${exec cat /etc/os-release | grep NAME | head -1 | cut -c 7-10}
 ${alignc}${exec cat /etc/os-release | grep NAME | head -1 | cut -c 12-16}${font}
 ${hr}
-${font poky:size=14}D${font} Time & Date${color}
+ Time & Date${color}
 ${offset 35}${color2}Now  :${color} ${time %c}  
-${offset 35}${color2}UpT. :${color}  ${uptime}
+${offset 35}${color2}UpT. :${color} ${uptime}
 ${offset 35}${color2}Day  : ${color}${time %j}    ${color2}Week : ${color}${time %W}    ${color2}Month : ${color}${time %m}      
 
-${color2}${font poky:size=15}5${font} Battery 
+${color2} Battery${color} 
 ${color2}${offset 35}Now  :${color} ${battery BAT0}
 ${color2}${offset 35}Perc :${color} ${battery_percent BAT0}%
 ${color2}${offset 35}Left :${color} ${battery_time BAT0}
 
-${color2}${font StyleBats:size=16}f${font} Devices${color}
-${offset 35}${color2}HID  :${color} ${if_existing /dev/hidraw1}Logitech MX Anywhere 2S${else}${color2}: :${color}${endif}
-${offset 35}${color2}USB  :${color} ${if_existing /dev/sda}SanDisk Flash Drive${else}${color2}: :${color}${endif}
 
 ${color2}${font SpaceAge:size=20}${alignc}Calendar${font}
 ${hr}${color}
 ${execpi 60 DJS=`date +%_d`; cal |sed 's/^/            /' | sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color ffa500}'"$DJS"'$color'/}
        
-${color2}${font SpaceAge:size=20}${alignc}Agenda${font}
-${hr}${color}
-${exec cat ~/conky.txt}
+
 
 
 
