@@ -20,7 +20,7 @@ default_shade_color black
 default_outline_color black
 alignment top_left
 gap_x 24
-gap_y 10
+gap_y 24
 no_buffers yes
 override_utf8_locale yes
 cpu_avg_samples 1
@@ -55,9 +55,4 @@ ${color2}${font SpaceAge:size=20}${alignc}Calendar${font}
 ${hr}${color}
 ${execpi 60 DJS=`date +%_d`; cal |sed 's/^/            /' | sed s/"\(^\|[^0-9]\)$DJS"'\b'/'\1${color ffa500}'"$DJS"'$color'/}
        
-
-
-
-
-
 
