@@ -11,7 +11,7 @@ alignment top_right
 minimum_size 355
 maximum_width 0
 gap_x 24
-gap_y 10
+gap_y 24
 draw_shades yes
 draw_outline no	
 draw_borders no
@@ -85,5 +85,3 @@ ${offset 35}${fs_bar 10 /home}
  Devices
 ${offset 35}HID  ${color1}: ${if_existing /dev/hidraw1}Logitech MX Anywhere 2S${else}: :${endif}${color}
 ${offset 35}USB  ${color1}: ${if_existing /dev/sda}SanDisk Flash Drive${else}: :${endif}${color}
-
-
